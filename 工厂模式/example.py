@@ -29,6 +29,9 @@ class ChatFactory(metaclass=ABCMeta):
     def create_chat(self):
         pass
 
+    def __call__(self):
+        return self.create_chat()
+
 
 class WechatFactory(ChatFactory):
     def create_chat(self):
@@ -44,7 +47,13 @@ if __name__ == '__main__':
     dingtalk_factory = DingTalkFactory()
     dingtalk = dingtalk_factory.create_chat()
     dingtalk.send_message('Hello World')
+    # 通过__call__方法，扩展工厂对象，省去方法调用的书写
+    dingtalk2 = dingtalk_factory()
+    dingtalk2.send_message('Hello World too')
 
     wechat_factory = WechatFactory()
     wechat = wechat_factory.create_chat()
     wechat.send_message('Hello World')
+    # 通过__call__方法，扩展工厂对象，省去方法调用的书写
+    wechat2 = wechat_factory()
+    wechat2.send_message('Hello World too')
