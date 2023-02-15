@@ -1,0 +1,19 @@
+@startuml
+class Issue{
+    - id : int
+    - subject : str
+    - database_conn : str
+    + create()
+    + update()
+    + search()
+    + delete()
+}
+class RedmineIssue{
+    + get_value_from_custom_field(name, **kwargs)
+}
+class MysqlIssue{
+
+}
+Issue <|-- RedmineIssue : redmine实现
+Issue <|-- MysqlIssue : mysql实现
+@enduml
