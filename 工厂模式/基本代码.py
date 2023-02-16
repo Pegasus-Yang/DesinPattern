@@ -30,7 +30,7 @@ class Issue:
 class RedmineIssue(Issue):
     """使用redmine存储Issue"""
 
-    def get_value_from_custom_field(self,name, **kwargs):
+    def get_value_from_custom_field(self, name, **kwargs):
         """
         从自定义字段中读取值
         """
@@ -77,6 +77,7 @@ if __name__ == '__main__':
     redmine = "redmine"
     mysql = "mysql"
 
+    # 优先从缓存中加载实例
     instance = find_in_storage()
     if instance:
         r_issue = instance

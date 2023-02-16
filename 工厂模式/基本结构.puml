@@ -1,0 +1,15 @@
+@startuml
+class Project
+class Beef
+class Chicken
+Project <|-- Beef : 继承
+Project <|-- Chicken : 继承
+class ProjectFactory
+class BeefFactory
+class ChickenFactory
+ProjectFactory <|-- BeefFactory : 继承
+ProjectFactory <|-- ChickenFactory : 继承
+Project <|.. ProjectFactory : 生产
+Beef <|.. BeefFactory : 生产
+Chicken <|.. ChickenFactory : 生产
+@enduml
